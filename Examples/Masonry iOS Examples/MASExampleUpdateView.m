@@ -24,12 +24,12 @@
     self.growingButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.growingButton setTitle:@"Grow Me!" forState:UIControlStateNormal];
     self.growingButton.layer.borderColor = UIColor.greenColor.CGColor;
-    self.growingButton.layer.borderWidth = 3;
+    self.growingButton.layer.borderWidth = 5;
 
     [self.growingButton addTarget:self action:@selector(didTapGrowButton:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.growingButton];
 
-    self.buttonSize = CGSizeMake(100, 100);
+    self.buttonSize = CGSizeMake(50, 50);
 
     // make sure updateConstraints gets called
     [self setNeedsUpdateConstraints];
@@ -40,6 +40,10 @@
 // this is Apple's recommended place for adding/updating constraints
 - (void)updateConstraints {
 
+    static int count = 0;
+    
+    NSLog(@"updateConstraints --> %d",++count);
+    
     [self.growingButton updateConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self);
         make.width.equalTo(@(self.buttonSize.width)).priorityLow();
@@ -53,7 +57,7 @@
 }
 
 - (void)didTapGrowButton:(UIButton *)button {
-    self.buttonSize = CGSizeMake(self.buttonSize.width * 1.3, self.buttonSize.height * 1.3);
+    self.buttonSize = CGSizeMake(self.buttonSize.width * 1.2, self.buttonSize.height * 1.2);
 
     // tell constraints they need updating
     [self setNeedsUpdateConstraints];

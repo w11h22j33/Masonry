@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3DB1CAD5184538E200E91FC5 /* MASExampleArrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB1CAD4184538E200E91FC5 /* MASExampleArrayView.m */; };
 		6C87DADA5AB046D9A3181A65 /* libPods-Masonry iOS Examples.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC1B8303EED42A2B01B94B1 /* libPods-Masonry iOS Examples.a */; };
+		AE200A6F18D340F60031DABF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE200A6E18D340F60031DABF /* Images.xcassets */; };
 		DD175E6A182639FB0099129A /* MASExampleUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD175E69182639FB0099129A /* MASExampleUpdateView.m */; };
 		DD52F22B179CAD57005CD195 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD52F22A179CAD57005CD195 /* UIKit.framework */; };
 		DD52F22D179CAD57005CD195 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD52F22C179CAD57005CD195 /* Foundation.framework */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		3DB1CAD3184538E200E91FC5 /* MASExampleArrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASExampleArrayView.h; sourceTree = "<group>"; };
 		3DB1CAD4184538E200E91FC5 /* MASExampleArrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASExampleArrayView.m; sourceTree = "<group>"; };
+		AE200A6E18D340F60031DABF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B086DD7D31DD4B49ADC08504 /* Pods-Masonry iOS Examples.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Masonry iOS Examples.xcconfig"; path = "../Pods/Pods-Masonry iOS Examples.xcconfig"; sourceTree = "<group>"; };
 		BDC1B8303EED42A2B01B94B1 /* libPods-Masonry iOS Examples.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Masonry iOS Examples.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD175E68182639FB0099129A /* MASExampleUpdateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASExampleUpdateView.h; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		DD52F21E179CAD57005CD195 = {
 			isa = PBXGroup;
 			children = (
+				AE200A6E18D340F60031DABF /* Images.xcassets */,
 				DD52F230179CAD57005CD195 /* Masonry iOS Examples */,
 				DD52F229179CAD57005CD195 /* Frameworks */,
 				DD52F228179CAD57005CD195 /* Products */,
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD52F235179CAD57005CD195 /* InfoPlist.strings in Resources */,
+				AE200A6F18D340F60031DABF /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,10 +367,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B086DD7D31DD4B49ADC08504 /* Pods-Masonry iOS Examples.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Masonry iOS Examples/Masonry iOS Examples-Prefix.pch";
 				INFOPLIST_FILE = "Masonry iOS Examples/Masonry iOS Examples-Info.plist";
 				PRODUCT_NAME = "Masonry iOS Examples";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -375,10 +382,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B086DD7D31DD4B49ADC08504 /* Pods-Masonry iOS Examples.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Masonry iOS Examples/Masonry iOS Examples-Prefix.pch";
 				INFOPLIST_FILE = "Masonry iOS Examples/Masonry iOS Examples-Info.plist";
 				PRODUCT_NAME = "Masonry iOS Examples";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

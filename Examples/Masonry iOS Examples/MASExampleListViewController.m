@@ -8,6 +8,8 @@
 
 #import "MASExampleListViewController.h"
 #import "MASExampleViewController.h"
+#import "MASExampleLayoutGuideViewController.h"
+
 #import "MASExampleBasicView.h"
 #import "MASExampleConstantsView.h"
 #import "MASExampleSidesView.h"
@@ -16,8 +18,8 @@
 #import "MASExampleLabelView.h"
 #import "MASExampleUpdateView.h"
 #import "MASExampleScrollView.h"
-#import "MASExampleLayoutGuideViewController.h"
 #import "MASExampleArrayView.h"
+
 
 static NSString * const kMASCellReuseIdentifier = @"kMASCellReuseIdentifier";
 
