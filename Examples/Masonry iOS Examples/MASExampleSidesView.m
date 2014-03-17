@@ -15,7 +15,7 @@
     if (!self) return nil;
     
     UIView *lastView = self;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 5; i++) {
         UIView *view = UIView.new;
         view.backgroundColor = [self randomColor];
         view.layer.borderColor = UIColor.blackColor.CGColor;
@@ -23,7 +23,8 @@
         [self addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(lastView).insets(UIEdgeInsetsMake(5, 10, 15, 20));
+            //以前一个View为参照，指定4个方向的内边距
+            make.edges.equalTo(lastView).insets(UIEdgeInsetsMake(25, 20, 25, 20));
         }];
         
         lastView = view;

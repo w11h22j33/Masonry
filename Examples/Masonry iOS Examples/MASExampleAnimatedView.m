@@ -51,7 +51,7 @@
             make.edges.equalTo(superview).insets(paddingInsets).priorityLow(),
             make.bottom.equalTo(view3.mas_top).offset(-padding),
         ]];
-
+        
         make.size.equalTo(view2);
         make.height.equalTo(view3.mas_height);
     }];
@@ -62,7 +62,7 @@
             make.left.equalTo(view1.mas_right).offset(padding),
             make.bottom.equalTo(view3.mas_top).offset(-padding),
         ]];
-
+        
         make.size.equalTo(view1);
         make.height.equalTo(view3.mas_height);
     }];
@@ -80,6 +80,9 @@
 }
 
 - (void)didMoveToWindow {
+    
+    NSLog(@"已经显示");
+    
     [self layoutIfNeeded];
 
     if (self.window) {
@@ -89,6 +92,9 @@
 }
 
 - (void)willMoveToWindow:(UIWindow *)newWindow {
+    
+    NSLog(@"将要显示");
+    
     self.animating = newWindow != nil;
 }
 
@@ -98,13 +104,15 @@
     int padding = invertedInsets ? 100 : self.padding;
     UIEdgeInsets paddingInsets = UIEdgeInsetsMake(padding, padding, padding, padding);
     for (MASConstraint *constraint in self.animatableConstraints) {
+        //遍历更新约束
         constraint.insets = paddingInsets;
     }
 
-    [UIView animateWithDuration:1 animations:^{
+    [UIView animateWithDuration:2 animations:^{
         [self layoutIfNeeded];
     } completion:^(BOOL finished) {
         //repeat!
+        //递归循环调用
         [self animateWithInvertedInsets:!invertedInsets];
     }];
 }

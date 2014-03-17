@@ -46,14 +46,10 @@
     UIView *lastView;
     CGFloat height = 25;
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 20; i++) {
         UIView *view = UIView.new;
         view.backgroundColor = [self randomColor];
         [contentView addSubview:view];
-
-        // Tap
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
-        [view addGestureRecognizer:singleTap];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(lastView ? lastView.bottom : @0);
@@ -64,8 +60,15 @@
 
         height += 25;
         lastView = view;
+        
+        // Tap
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
+        [view addGestureRecognizer:singleTap];
+        
     }
 
+    // 需要再看一下
+    
     // dummy view, which determines the size of the contentView size and therefore the scrollView contentSize
     UIView *sizingView = UIView.new;
     [scrollView addSubview:sizingView];
@@ -73,7 +76,6 @@
         make.top.equalTo(lastView.bottom);
         make.bottom.equalTo(contentView.bottom);
     }];
-
     return self;
 }
 
@@ -85,7 +87,8 @@
 }
 
 - (void)singleTap:(UITapGestureRecognizer*)sender {
-    [sender.view setAlpha:sender.view.alpha / 1.20]; // To see something happen on screen when you tap :O
+    sender.view.backgroundColor = [self randomColor];
+//    [sender.view setAlpha:sender.view.alpha / 1.20]; // To see something happen on screen when you tap :O
     [self.scrollView scrollRectToVisible:sender.view.frame animated:YES];
 };
 

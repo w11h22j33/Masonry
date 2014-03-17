@@ -40,16 +40,19 @@
     UIView *superview = self;
     int padding = 10;
 
+    //设置调试日志索引View的名称键值
     //you can attach debug keys to views like so:
-//    view1.mas_key = @"view1";
-//    view2.mas_key = @"view2";
-//    view3.mas_key = @"view3";
-//    superview.mas_key = @"superview";
+    view1.mas_key = @"view1";
+    view2.mas_key = @"view2";
+    view3.mas_key = @"view3";
+    superview.mas_key = @"superview";
 
     //OR you can attach keys automagically like so:
     MASAttachKeys(view1, view2, view3, superview);
 
     [view3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        //设置调试日志索引约束的名称键值
         //you can also attach debug keys to constaints
         make.edges.equalTo(@1).key(@"ConflictingConstraint"); //composite constraint keys will be indexed
         make.height.greaterThanOrEqualTo(@5000).key(@"ConstantConstraint");
