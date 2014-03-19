@@ -63,9 +63,14 @@
             make.width.equalTo(contentView.width);
             make.height.equalTo(@(height));
             
-            if (i==19) {
+
+            
+            //此处可以直接指定最后一个子View的bottom与contentView的bottom的关系。指定后，虚拟View可以不使用。
+            if (i == 19) {
+                view.backgroundColor = [UIColor redColor];
                 make.bottom.equalTo(contentView.bottom);
             }
+            
         }];
 
         height += 25;

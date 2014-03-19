@@ -68,11 +68,17 @@ static CGFloat const kArrayExampleIncrement = 10.0;
 }
 
 - (void)setOffset:(CGFloat)offset {
+    
+    NSLog(@"setOffset:%f",offset);
+    
     _offset = offset;
     [self setNeedsUpdateConstraints];
 }
 
 - (void)updateConstraints {
+    
+    NSLog(@"updateConstraints --> ");
+    
     [self.buttonViews updateConstraints:^(MASConstraintMaker *make) {
         make.baseline.equalTo(self.mas_centerY).with.offset(self.offset);
     }];
