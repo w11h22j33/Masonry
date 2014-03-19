@@ -49,13 +49,23 @@
     for (int i = 0; i < 20; i++) {
         UIView *view = UIView.new;
         view.backgroundColor = [self randomColor];
-        [contentView addSubview:view];
+        
+//        if (i<19) {
+            [contentView addSubview:view];
+//        }else{
+//            [scrollView addSubview:view];
+//        }
+        
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(lastView ? lastView.bottom : @0);
             make.left.equalTo(@0);
             make.width.equalTo(contentView.width);
             make.height.equalTo(@(height));
+            
+            if (i==19) {
+                make.bottom.equalTo(contentView.bottom);
+            }
         }];
 
         height += 25;
@@ -70,12 +80,12 @@
     // 需要再看一下
     
     // dummy view, which determines the size of the contentView size and therefore the scrollView contentSize
-    UIView *sizingView = UIView.new;
-    [scrollView addSubview:sizingView];
-    [sizingView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(lastView.bottom);
-        make.bottom.equalTo(contentView.bottom);
-    }];
+//    UIView *sizingView = UIView.new;
+//    [scrollView addSubview:sizingView];
+//    [sizingView makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(lastView.bottom);
+//        make.bottom.equalTo(contentView.bottom);
+//    }];
     return self;
 }
 
