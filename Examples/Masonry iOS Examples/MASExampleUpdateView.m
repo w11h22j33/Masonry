@@ -53,6 +53,7 @@
     }];
     
     //according to apple super should be called at end of method
+    //    自定义view应该重写此方法在其中建立constraints. 注意：要在实现在最后调用
     [super updateConstraints];
 }
 
@@ -60,12 +61,16 @@
     self.buttonSize = CGSizeMake(self.buttonSize.width * 1.2, self.buttonSize.height * 1.2);
 
     // tell constraints they need updating
+    // 此方法会将view当前的layout设置为无效的，并在下一个upadte cycle里去触发layout更新。
     [self setNeedsUpdateConstraints];
-
+    
     // update constraints now so we can animate the change
+    // 立即触发更新约束
     [self updateConstraintsIfNeeded];
 
     [UIView animateWithDuration:0.4 animations:^{
+        
+        //  使用此方法强制立即进行layout,从当前view开始，此方法会遍历整个view层次(包括superviews)请求layout。因此，调用此方法会强制整个view层次布局。
         [self layoutIfNeeded];
     }];
 }

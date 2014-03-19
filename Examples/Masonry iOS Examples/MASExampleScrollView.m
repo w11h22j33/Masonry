@@ -56,6 +56,14 @@
             make.left.equalTo(@0);
             make.width.equalTo(contentView.width);
             make.height.equalTo(@(height));
+            
+            
+            //此处可以直接指定最后一个子View的bottom与contentView的bottom的关系。指定后，虚拟View可以不使用。
+            if (i == 19) {
+                view.backgroundColor = [UIColor redColor];
+                make.bottom.equalTo(contentView.bottom);
+            }
+            
         }];
 
         height += 25;
@@ -70,12 +78,12 @@
     // 需要再看一下
     
     // dummy view, which determines the size of the contentView size and therefore the scrollView contentSize
-    UIView *sizingView = UIView.new;
-    [scrollView addSubview:sizingView];
-    [sizingView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(lastView.bottom);
-        make.bottom.equalTo(contentView.bottom);
-    }];
+//    UIView *sizingView = UIView.new;
+//    [scrollView addSubview:sizingView];
+//    [sizingView makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(lastView.bottom);
+//        make.bottom.equalTo(contentView.bottom);
+//    }];
     return self;
 }
 
